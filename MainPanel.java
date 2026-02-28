@@ -66,11 +66,11 @@ public class MainPanel extends JPanel implements KeyListener {
 
 
         //draws ground and walls
-        g2.setColor(Color.GRAY);
+        g2.setColor(Color.DARK_GRAY);
         g2.fillRect(0, 610, 1500, 100);
         g2.fillRect(0, 0, 20, 1000);
         g2.fillRect(960, 0, 100, 1000);
-
+        g2.fillRect(0, 0, 1000, 20);
     }
 
     
