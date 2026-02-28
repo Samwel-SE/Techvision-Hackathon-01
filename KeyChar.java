@@ -18,6 +18,16 @@ public abstract class KeyChar {
     public abstract int getCharX();
     public abstract int getCharY();
 
-    public abstract void drawChar(Graphics2D g);
+    public void drawChar(Graphics2D g) {
+        g.setColor(Color.BLACK);
+        g.drawRect(this.x, this.y, length, length);
+
+        String text = String.valueOf(this.character);
+
+        int textX = this.x + (length / 2);
+        int textY = this.y + (length / 2);
+
+        g.drawString(text, textX, textY);
+    }
 
 }

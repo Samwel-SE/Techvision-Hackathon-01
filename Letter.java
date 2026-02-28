@@ -1,4 +1,3 @@
-import java.awt.*;
 
 public class Letter extends KeyChar {
 
@@ -16,16 +15,4 @@ public class Letter extends KeyChar {
     @Override
     public void unShift() { this.character = Character.toLowerCase(this.character); }
 
-    @Override
-    public void drawChar(Graphics2D g) {
-        g.setColor(Color.BLACK);
-        g.drawRect(this.x, this.y, length, length);
-
-        String text = String.valueOf(this.character);
-
-        int textX = this.x + (length / 2);
-        int textY = this.y + (length / 2);
-
-        g.drawString(text, textX, textY);
-    }   
 }
