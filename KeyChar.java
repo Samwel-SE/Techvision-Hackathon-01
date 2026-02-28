@@ -12,11 +12,8 @@ public abstract class KeyChar {
         this.y = y;
     }
 
-    public abstract void shift();
-    public abstract void unShift();
-
-    public abstract int getCharX();
-    public abstract int getCharY();
+    public int getCharX() { return this.x ;}
+    public int getCharY() { return this.y; }
 
     public void drawChar(Graphics2D g) {
         g.setColor(Color.BLACK);

@@ -21,26 +21,25 @@ public class Keyboard {
         'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
         'z', 'x', 'c', 'v', 'b', 'n', 'm'};
 
-        char[] numComplements = {'!', '"', 'p', '$', '%', '^', '&', '*', '(', ')'};
 
         //draws the numbers
-        for (int i=0; i<10; i++){
-            numbers[i] = new NumberChar(keyboardLetters[i], numComplements[i], (60*i)+130, 300);
+        for (int i=0; i<10; i++) {
+            numbers[i] = new NumberChar(keyboardLetters[i], (60*i)+130, 300);
         } 
 
         //draws the next 10 letters
         for (int i=0; i<10; i++) {
-            letters[i] = new Letter(keyboardLetters[i], (60*i)+130, 375);
+            letters[i] = new Letter(keyboardLetters[i+10], (60*i)+130, 375);
         }
 
         //draws the next 9 letters
-        for(int i=0; i<9; i++){
-            letters[i+10] = new Letter(keyboardLetters[i+10], (60*i)+150, 450);
+        for (int i=0; i<9; i++) {
+            letters[i+10] = new Letter(keyboardLetters[i+20], (60*i)+150, 450);
         }
 
         //draws the last 7 letters
-        for(int i=0; i<7; i++){
-            letters[i+19] = new Letter(keyboardLetters[i+19], (60*i)+210, 525);
+        for (int i=0; i<7; i++) {
+            letters[i+19] = new Letter(keyboardLetters[i+29], (60*i)+210, 525);
         }
     }
 
