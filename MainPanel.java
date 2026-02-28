@@ -31,8 +31,8 @@ public class MainPanel extends JPanel implements KeyListener {
     }
 
     public void addTextBoxes() {
-        final Font lblFont = new Font("Arial", Font.BOLD, 32);
-        final Font txtFont = new Font("Arial", Font.PLAIN, 32);
+        final Font lblFont = new Font("Papyrus", Font.BOLD, 32);
+        final Font txtFont = new Font("Papyrus", Font.PLAIN, 32);
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
