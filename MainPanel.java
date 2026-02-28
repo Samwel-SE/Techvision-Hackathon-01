@@ -32,7 +32,40 @@ public class MainPanel extends JPanel implements KeyListener {
     }
 
     public void addTextBoxes() {
-        
+        final Font lblFont = new Font("Arial", Font.BOLD, 32);
+        final Font txtFont = new Font("Arial", Font.PLAIN, 32);
+
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
+
+        JPanel usernameRow = new JPanel();
+        JPanel passwordRow = new JPanel();
+
+        // Username row
+        JLabel lblUsername = new JLabel("Username:");
+        lblUsername.setFont(lblFont);
+        JTextField username = new JTextField(20);
+        username.setFont(txtFont);
+        username.setFocusable(false);
+        usernameRow.setLayout(new FlowLayout());
+        usernameRow.add(lblUsername);
+        usernameRow.add(username);
+
+
+        // Password row
+        JLabel lblPassword = new JLabel("Password:");
+        lblPassword.setFont(lblFont);
+        JPasswordField password = new JPasswordField(20);
+        password.setFont(txtFont);
+        password.setFocusable(false);
+        passwordRow.setLayout(new FlowLayout());
+        passwordRow.add(lblPassword);
+        passwordRow.add(password);
+
+        topPanel.add(usernameRow);
+        topPanel.add(passwordRow);
+
+        add(topPanel);
     }
 
     public void addChars() {
