@@ -15,7 +15,7 @@ public class MainPanel extends JPanel implements KeyListener {
         addKeyListener(this);
         setFocusable(true);
 
-        this.p1 = new player(100, 100, 5, 5);
+        this.p1 = new player(100, 100, 10, 10);
         
         // setup timer
         timer = new Timer(1, e -> {

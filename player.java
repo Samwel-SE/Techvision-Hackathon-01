@@ -22,14 +22,9 @@ public class player implements KeyListener{
 
 
     @Override
-    public void keyReleased(KeyEvent e){
-        //does nothing just here to not give an error
-    }
-
+    public void keyReleased(KeyEvent e) {/* does nothing */ }
     @Override
-    public void keyTyped(KeyEvent e){
-        //does nothing just here to handle error;
-    }
+    public void keyTyped(KeyEvent e){ /* does nothing */ }
 
     @Override
     public void keyPressed(KeyEvent e){
@@ -38,16 +33,19 @@ public class player implements KeyListener{
 
             case KeyEvent.VK_W:
                 this.y -= 5;
+                break;
 
             case KeyEvent.VK_D:
                 this.x += 5;
-            
+                break;
+
             case KeyEvent.VK_A:
                 this.x -= 5;
+                break;
 
             case KeyEvent.VK_S:
                 this.y += 5;
-
+                break;
         }
     }
 
