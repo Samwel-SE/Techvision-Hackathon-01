@@ -57,5 +57,9 @@ public class Keyboard {
 
     }
 
+    public void checkCollisions(){
+
+        
+    }
 
 }
