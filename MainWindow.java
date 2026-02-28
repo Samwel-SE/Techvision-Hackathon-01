@@ -7,7 +7,6 @@ public class MainWindow extends JFrame {
         // Create Window
         setTitle("HACKATHON UI");
         add(panel, BorderLayout.CENTER);
-        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
