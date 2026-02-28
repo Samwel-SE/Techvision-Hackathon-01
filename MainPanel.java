@@ -8,7 +8,6 @@ public class MainPanel extends JPanel implements KeyListener {
 
     private Player p1;
     private KeyChar[] characters = new KeyChar[42];
-    public player p1;
     private final Timer timer;
 
 
@@ -19,7 +18,7 @@ public class MainPanel extends JPanel implements KeyListener {
 
         addChars();
 
-        this.p1 = new player(100, 100, 10, 10);
+        this.p1 = new Player(100, 100, 10, 10);
         
         // setup timer
         timer = new Timer(15, e -> {
@@ -76,5 +75,6 @@ public class MainPanel extends JPanel implements KeyListener {
 
     public void update(){
         p1.jump();
+        p1.collisionWithGroundAndWalls();
     }
 }
