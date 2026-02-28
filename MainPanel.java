@@ -13,6 +13,7 @@ public class MainPanel extends JPanel implements KeyListener {
 
     private final Timer timer;
 
+    private boolean keyPressed = false;
 
     public MainPanel() {
 
@@ -72,6 +73,7 @@ public class MainPanel extends JPanel implements KeyListener {
 
     public void addCharUsername(char c) {
         if (!(c == '#')) {
+            keyPressed = true;
             String currString = username.getText();
             String newString = currString + String.valueOf(c);
             username.setText(newString);

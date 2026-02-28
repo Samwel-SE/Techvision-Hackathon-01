@@ -8,10 +8,7 @@ public class Keyboard {
     private final NumberChar[] numbers = new NumberChar[10];
     private Letter[] letters = new Letter[26];
 
-
-    public Keyboard(){
-
-    }
+    
 
     public void addChars() {
 
@@ -59,16 +56,24 @@ public class Keyboard {
 
         //checks for number key collision
         for(NumberChar num : numbers){ 
-            if(num.bottomCollision(pX, pY, pW, pH)) return num.getCharacter();
+            if(num.bottomCollision(pX, pY, pW, pH)) {
+                num.animationState = true;
+                return num.getCharacter();
+            }
+            
         }   
 
         //checks for letter key collision
         for(Letter l : letters){
-            if(l.bottomCollision(pX, pY, pW, pH)) return l.getCharacter();
-        }
+            if(l.bottomCollision(pX, pY, pW, pH)) {
+                l.animationState = true;
+                return l.getCharacter();
+            }
 
-        //hashtag symbol reprents nothing being pressed down
-        return '#';
+        
     }
 
+    //hashtag symbol reprents nothing being pressed down
+    return '#';
+    }
 }
