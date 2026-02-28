@@ -4,7 +4,7 @@ public abstract class KeyChar {
 
     protected char character;
     protected int x, y;
-    protected final int length=20;
+    protected final int length=40;
 
     public KeyChar(char c, int x, int y) {
         this.character = c;
