@@ -17,6 +17,8 @@ public abstract class KeyChar {
 
     public void drawChar(Graphics2D g) {
         g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(this.x + 5, this.y + 5, length, length);
+        g.setColor(Color.DARK_GRAY);
         g.fillRect(this.x, this.y, length, length);
         g.setColor(Color.BLACK);
         g.drawRect(this.x, this.y, length, length);
@@ -28,6 +30,8 @@ public abstract class KeyChar {
         int textX = (this.x + (length / 2)) - OFFSET;
         int textY = (this.y + (length / 2)) + OFFSET;
 
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Impact", Font.PLAIN, 12));
         g.drawString(text, textX, textY);
     }
 
