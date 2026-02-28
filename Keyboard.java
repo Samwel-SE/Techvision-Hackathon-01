@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 public class Keyboard {
 
-    private NumberChar[] numbers = new NumberChar[10];
+    private final NumberChar[] numbers = new NumberChar[10];
     private Letter[] letters = new Letter[26];
 
 

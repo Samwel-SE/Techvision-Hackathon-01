@@ -21,8 +21,10 @@ public abstract class KeyChar {
 
         String text = String.valueOf(this.character);
 
-        int textX = this.x + (length / 2);
-        int textY = this.y + (length / 2);
+        final int OFFSET = 4;
+
+        int textX = (this.x + (length / 2)) - OFFSET;
+        int textY = (this.y + (length / 2)) + OFFSET;
 
         g.drawString(text, textX, textY);
     }
