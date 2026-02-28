@@ -91,6 +91,7 @@ public class MainPanel extends JPanel implements KeyListener {
             String currString = password.getText();
             String newString = currString + String.valueOf(c);
             password.setText(newString);
+            p1.jumping = false;
         }
     }
 
