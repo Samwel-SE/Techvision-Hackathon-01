@@ -43,7 +43,7 @@ public class MainPanel extends JPanel implements KeyListener {
         p1.drawPlayer(g2);
 
         for (int i=0; i<26; i++) {
-           letters[i].drawLetter(g2);
+           letters[i].drawChar(g2);
         }
     }
 
