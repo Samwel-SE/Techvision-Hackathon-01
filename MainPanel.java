@@ -91,8 +91,7 @@ public class MainPanel extends JPanel implements KeyListener {
     }
 
     
-    @Override
-    public void keyReleased(KeyEvent e){/* not used */ }
+    
 
     @Override
     public void keyTyped(KeyEvent e){ /* not used*/ }
@@ -104,8 +103,14 @@ public class MainPanel extends JPanel implements KeyListener {
         p1.keyPressed(e);
     }
 
+    @Override
+    public void keyReleased(KeyEvent e){
+        p1.keyReleased(e);
+    }
+
+
     public void update(){
-        p1.jump();
+        p1.movement();
         p1.collisionWithGroundAndWalls();
     }
 }
