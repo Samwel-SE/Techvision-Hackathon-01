@@ -19,7 +19,13 @@ public class Letter extends KeyChar {
     @Override
     public void drawChar(Graphics2D g) {
         g.setColor(Color.BLACK);
-        // JLabel lbl = new JLabel(char);
         g.drawRect(this.x, this.y, length, length);
+
+        String text = String.valueOf(this.character);
+
+        int textX = this.x + (length / 2);
+        int textY = this.y + (length / 2);
+
+        g.drawString(text, textX, textY);
     }   
 }

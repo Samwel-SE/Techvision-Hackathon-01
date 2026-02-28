@@ -41,11 +41,11 @@ public class MainPanel extends JPanel implements KeyListener {
         char[] numComplements = {'!', '"', 'p', '$', '%', '^', '&', '*', '(', ')'};
 
         for (int i=0; i<10; i++){
-            characters[i] = new NumberChar(keyboardLetters[i], numComplements[i], (30*i)+20, 400);
+            characters[i] = new NumberChar(keyboardLetters[i], numComplements[i], (60*i)+50, 400);
         } 
 
         for (int i=10; i<36; i++) {
-            characters[i] = new Letter(keyboardLetters[i], (30*i)+20, 400);
+            characters[i] = new Letter(keyboardLetters[i], (60*i)+50, 450);
         }
     }
 
