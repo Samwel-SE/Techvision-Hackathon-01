@@ -10,7 +10,7 @@ public class Main{
         MainWindow window = new MainWindow(panel);
         
         window.setResizable(false);
-        window.setSize(1000, 1000);
+        window.setSize(1000, 700);
         window.setVisible(true);
         
     }
