@@ -7,6 +7,8 @@ public class MainPanel extends JPanel implements KeyListener {
 
     private Player p1;
     private Keyboard keyboard = new Keyboard();
+    private JTextField username = new JTextField(20);
+    private JPasswordField password = new JPasswordField(20);
 
     private final Timer timer;
 
@@ -44,7 +46,6 @@ public class MainPanel extends JPanel implements KeyListener {
         // Username row
         JLabel lblUsername = new JLabel("Username: ");
         lblUsername.setFont(lblFont);
-        JTextField username = new JTextField(20);
         username.setFont(txtFont);
         username.setFocusable(false);
         usernameRow.setLayout(new FlowLayout());
@@ -55,7 +56,6 @@ public class MainPanel extends JPanel implements KeyListener {
         // Password row
         JLabel lblPassword = new JLabel("Password: ");
         lblPassword.setFont(lblFont);
-        JPasswordField password = new JPasswordField(20);
         password.setFont(txtFont);
         password.setFocusable(false);
         passwordRow.setLayout(new FlowLayout());
@@ -67,6 +67,32 @@ public class MainPanel extends JPanel implements KeyListener {
         topPanel.setOpaque(false);
 
         add(topPanel);
+    }
+
+    public void addCharUsername(char c) {
+        String currString = username.getText();
+        String newString = currString + String.valueOf(c);
+        username.setText(newString);
+    }
+
+    public void removeCharUsername() {
+        String currString = username.getText();
+        int strLength = currString.length();
+        String newString = currString.substring(0, strLength-1);
+        username.setText(newString);
+    }
+
+    public void addCharPass(char c) {
+        String currString = password.getText();
+        String newString = currString + String.valueOf(c);
+        password.setText(newString);
+    }
+
+    public void removeCharPass() {
+        String currString = password.getText();
+        int strLength = currString.length();
+        String newString = currString.substring(0, strLength-1);
+        password.setText(newString);
     }
 
     @Override
