@@ -5,8 +5,8 @@ import javax.swing.*;
 
 public class MainPanel extends JPanel implements KeyListener {
 
-
-    private player p1;
+    private Letter[] letters = new Letter[26];
+    public player p1;
     private final Timer timer;
 
 
@@ -14,6 +14,8 @@ public class MainPanel extends JPanel implements KeyListener {
 
         addKeyListener(this);
         setFocusable(true);
+
+        addLetters();
 
         this.p1 = new player(100, 100, 10, 10);
         
@@ -26,12 +28,23 @@ public class MainPanel extends JPanel implements KeyListener {
     }
 
 
+    public void addLetters() {
+
+        for (int i=0; i<26; i++) {
+            letters[i] = new Letter(keyboardLetters[i], (30*i)+20, 400);
+        }
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
         p1.drawPlayer(g2);
+
+        for (int i=0; i<26; i++) {
+           letters[i].drawLetter(g2);
+        }
     }
 
     @Override
