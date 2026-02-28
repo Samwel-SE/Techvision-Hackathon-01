@@ -45,7 +45,6 @@ public class Player implements KeyListener{
 
     public void jump(){
         if(this.jumping){
-            System.out.println("jumping should be happening");
             this.y -=  this.jumpVel;
             this.jumpVel -= 1;
         }
@@ -67,7 +66,7 @@ public class Player implements KeyListener{
         //checks collision with the left wall
         if(this.checkCollision(0, 0, 25, 1000)) this.x = 20;
 
-        if(this.checkCollision(1300, 0, 25, 1000)) this.x = 1300;
+        if(this.checkCollision(1330, 0, 25, 1000)) this.x = 1330;
 
 
 

@@ -57,7 +57,15 @@ public class MainPanel extends JPanel implements KeyListener {
 
         for (int i=0; i<36; i++) {
            characters[i].drawChar(g2);
-        }
+        }   
+
+
+        //draws ground and walls
+        g2.setColor(Color.GRAY);
+        g2.fillRect(0, 610, 1500, 100);
+        g2.fillRect(0, 0, 20, 1000);
+        g2.fillRect(1340, 0, 100, 1000);
+
     }
 
     
