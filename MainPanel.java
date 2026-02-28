@@ -18,6 +18,7 @@ public class MainPanel extends JPanel implements KeyListener {
         setFocusable(true);
 
         addChars();
+        addTextBoxes();
 
         this.p1 = new Player(100, 100, 10, 10);
         
@@ -28,6 +29,10 @@ public class MainPanel extends JPanel implements KeyListener {
         });
 
         timer.start();
+    }
+
+    public void addTextBoxes() {
+        
     }
 
     public void addChars() {
