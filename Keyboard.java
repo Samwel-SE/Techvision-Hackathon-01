@@ -46,20 +46,29 @@ public class Keyboard {
 
     //draws keyboard and the boxes around stuff
     public void draw(Graphics2D g){
+        
+        //draws the numbers
+        for(NumberChar num : numbers) num.drawChar(g);
 
-        for(NumberChar num : numbers){
-            num.drawChar(g);
-        }
-
-        for(Letter l : letters){
-            l.drawChar(g);
-        }
+        //draws the letters
+        for(Letter l : letters) l.drawChar(g);
 
     }
 
-    public void checkCollisions(){
+    public char checkCollisions(int pX, int pY, int pW, int pH){
 
-        
+        //checks for number key collision
+        for(NumberChar num : numbers){ 
+            if(num.bottomCollision(pX, pY, pW, pH)) return num.getCharacter();
+        }   
+
+        //checks for letter key collision
+        for(Letter l : letters){
+            if(l.bottomCollision(pX, pY, pW, pH)) return l.getCharacter();
+        }
+
+        //hashtag symbol reprents nothing being pressed down
+        return '#';
     }
 
 }
