@@ -90,9 +90,13 @@ public class MainPanel extends JPanel implements KeyListener {
 
     public void addCharPass(char c) {
         if (!(c == '#')) {
-            String currString = password.getText();
-            String newString = currString + String.valueOf(c);
-            password.setText(newString);
+            char[] currPassword = password.getPassword();
+            char[] newPassword = Arrays.copyOf(currPassword, currPassword.length + 1);
+            newPassword[newPassword.length - 1] = c;
+
+            password.setText(new String(newPassword));
+            Arrays.fill(currPassword, '\0');
+            
             p1.jumping = false;
         }
     }
