@@ -6,9 +6,8 @@ import javax.swing.*;
 public class MainPanel extends JPanel implements KeyListener {
 
     private Player p1;
+    private Keyboard keyboard = new Keyboard();
 
-    private KeyChar[] characters = new KeyChar[36];
-    
     private final Timer timer;
 
 
@@ -17,7 +16,7 @@ public class MainPanel extends JPanel implements KeyListener {
         addKeyListener(this);
         setFocusable(true);
 
-        addChars();
+        keyboard.addChars();
         addTextBoxes();
 
         this.p1 = new Player(100, 100, 10, 10);
@@ -35,46 +34,12 @@ public class MainPanel extends JPanel implements KeyListener {
         
     }
 
-    public void addChars() {
-
-        char[] keyboardLetters = {
-        '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-        'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
-        'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
-        'z', 'x', 'c', 'v', 'b', 'n', 'm'};
-
-        char[] numComplements = {'!', '"', 'p', '$', '%', '^', '&', '*', '(', ')'};
-
-        //draws the numbers
-        for (int i=0; i<10; i++){
-            characters[i] = new NumberChar(keyboardLetters[i], numComplements[i], (60*i)+130, 300);
-        } 
-
-        //draws the next 10 letters
-        for (int i=0; i<10; i++) {
-            characters[i+10] = new Letter(keyboardLetters[i+10], (60*i)+130, 375);
-        }
-
-        //draws the next 9 letters
-        for(int i=0; i<9; i++){
-            characters[i+20] = new Letter(keyboardLetters[i+20], (60*i)+150, 450);
-        }
-
-        //draws the last 7 letters
-        for(int i=0; i<7; i++){
-            characters[i+29] = new Letter(keyboardLetters[i+29], (60*i)+210, 525);
-        }
-    }
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         p1.drawPlayer(g2);
-
-        for (int i=0; i<36; i++) {
-           characters[i].drawChar(g2);
-        }   
+        keyboard.draw(g2);
 
 
         //draws ground and walls

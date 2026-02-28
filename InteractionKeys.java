@@ -8,7 +8,6 @@ public class InteractionKeys {
         CAPS_LOCK
     }
 
-
     public int x;
     public int y;
     public int width;
@@ -35,5 +34,5 @@ public class InteractionKeys {
                      
     }
 
-    
+
 }
