@@ -18,7 +18,7 @@ public abstract class KeyChar {
     public void drawChar(Graphics2D g) {
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(this.x, this.y, length, length);
-         g.setColor(Color.BLACK);
+        g.setColor(Color.BLACK);
         g.drawRect(this.x, this.y, length, length);
 
         String text = String.valueOf(this.character);
