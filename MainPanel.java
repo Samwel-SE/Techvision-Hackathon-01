@@ -27,10 +27,27 @@ public class MainPanel extends JPanel implements KeyListener {
         timer.start();
     }
 
-
     public void addLetters() {
 
-        for (int i=0; i<26; i++) {
+        char[] keyboardLetters = {
+        // Top Row (Numbers and Symbols)
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+        // Second Row (QWERTY...)
+        'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+        // Third Row (ASDF...)
+        'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';',
+        // Fourth Row (ZXCV...)
+        'z', 'x', 'c', 'v', 'b', 'n', 'm'};
+
+        char[] numComplements = {'!', '"', '£', '$', '^', '&', '*', '(', ')'}
+
+        KeyChar letter[] = new KeyChar[42]; 
+
+        for (int i=0; i<10; i++){
+            letters[i] = new Letter(keyboardLetters[i], (30*i)+20, 400);
+        } 
+
+        for (int i=10; i<42; i++) {
             letters[i] = new Letter(keyboardLetters[i], (30*i)+20, 400);
         }
     }
@@ -42,7 +59,7 @@ public class MainPanel extends JPanel implements KeyListener {
 
         p1.drawPlayer(g2);
 
-        for (int i=0; i<26; i++) {
+        for (int i=0; i<42; i++) {
            letters[i].drawLetter(g2);
         }
     }
@@ -57,6 +74,4 @@ public class MainPanel extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e){
         p1.keyPressed(e);
     }
-
-
 }
