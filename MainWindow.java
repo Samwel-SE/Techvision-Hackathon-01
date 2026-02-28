@@ -5,7 +5,7 @@ public class MainWindow extends JFrame {
 
     public MainWindow(MainPanel panel) {
         // Create Window
-        setTitle("User Interface");
+        setTitle("HACKATHON UI");
         add(panel, BorderLayout.CENTER);
 
         // Maximise JFrame to fit entire screen
