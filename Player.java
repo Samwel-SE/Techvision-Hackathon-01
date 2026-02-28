@@ -18,7 +18,7 @@ public class Player implements KeyListener{
 
     public int jumpVel;
 
-    final int JUMP_VEL = 15;
+    final int JUMP_VEL = 13;
 
     public Player(int x, int y, int width, int height){
         this.x = x;

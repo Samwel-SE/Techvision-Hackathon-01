@@ -35,4 +35,8 @@ public abstract class KeyChar {
         g.drawString(text, textX, textY);
     }
 
+    public char getCharacter(){
+        return this.character;
+    }
+
 }
