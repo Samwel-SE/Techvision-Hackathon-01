@@ -65,8 +65,9 @@ public class Player implements KeyListener{
 
         //checks collision with the left wall
         if(this.checkCollision(0, 0, 25, 1000)) this.x = 20;
-
-        if(this.checkCollision(1330, 0, 25, 1000)) this.x = 1330;
+        
+        //checks collision with the right wall
+        if(this.checkCollision(950, 0, 100, 1000)) this.x = 950;
 
 
 

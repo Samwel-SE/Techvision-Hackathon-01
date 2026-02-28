@@ -64,7 +64,7 @@ public class MainPanel extends JPanel implements KeyListener {
         g2.setColor(Color.GRAY);
         g2.fillRect(0, 610, 1500, 100);
         g2.fillRect(0, 0, 20, 1000);
-        g2.fillRect(1340, 0, 100, 1000);
+        g2.fillRect(960, 0, 100, 1000);
 
     }
 
