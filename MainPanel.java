@@ -1,19 +1,23 @@
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
-public class MainPanel extends JPanel {
+public class MainPanel extends JPanel implements KeyListener {
 
-    private int currentX;
-    private int currentY;
-    private final int SQUARE_LENGTH = 20;
 
+    private player p1;
     private final Timer timer;
 
 
     public MainPanel() {
 
-        // setup list
+        addKeyListener(this);
+        setFocusable(true);
+
+        this.p1 = new player(100, 100, 5, 5);
+        
+        // setup timer
         timer = new Timer(1, e -> {
             repaint();
         });
@@ -21,19 +25,25 @@ public class MainPanel extends JPanel {
         timer.start();
     }
 
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(Color.BLACK);
-        g2.fillRect(currentX, currentY, SQUARE_LENGTH, SQUARE_LENGTH);
+        p1.drawPlayer(g2);
     }
 
-    public static void main(String[] args) {
-        // Not needed
-    }
+    @Override
+    public void keyReleased(KeyEvent e){/* not used */ }
 
+    @Override
+    public void keyTyped(KeyEvent e){ /* not used*/ }
+
+    @Override
+    public void keyPressed(KeyEvent e){
+        p1.keyPressed(e);
+    }
 
 
 }
