@@ -9,7 +9,13 @@ public class Player implements KeyListener{
     public int y; 
     public int width;
     public int height;
+
+    public boolean movingRight;
+    public boolean movingLeft;
+
     public boolean jumping;
+
+
     public int jumpVel;
 
     final int JUMP_VEL = 15;
@@ -19,31 +25,42 @@ public class Player implements KeyListener{
         this.y = y;
         this.width = width;
         this.height = height;
+
         this.jumping = false;
-        this.jumpVel = JUMP_VEL;
-        
+        this.movingRight = false;
+        this.movingLeft = false;
+
+        this.jumpVel = JUMP_VEL;  
     }
 
-    @Override
-    public void keyReleased(KeyEvent e) {/* does nothing */ }
+    
     @Override
     public void keyTyped(KeyEvent e){ /* does nothing */ }
 
+    //handles when keys are pressed
     @Override
     public void keyPressed(KeyEvent e){
 
         if(e.getKeyCode() == KeyEvent.VK_W){
             this.jumping = true;
-            this.jump();
         }
 
-        if(e.getKeyCode() == KeyEvent.VK_D) this.x += 5;
+        if(e.getKeyCode() == KeyEvent.VK_D) this.movingRight = true;
 
-        if(e.getKeyCode() == KeyEvent.VK_A) this.x -= 5;
+        if(e.getKeyCode() == KeyEvent.VK_A) this.movingLeft = true;
     }
 
+    //handles when keys are released
+    @Override
+    public void keyReleased(KeyEvent e) {
 
-    public void jump(){
+        if(e.getKeyCode() == KeyEvent.VK_D) this.movingRight = false;
+
+        if(e.getKeyCode() == KeyEvent.VK_A) this.movingLeft = false;
+     }
+
+    public void movement(){
+        
         if(this.jumping){
             this.y -=  this.jumpVel;
             this.jumpVel -= 1;
@@ -51,8 +68,15 @@ public class Player implements KeyListener{
 
         else this.y += 5; 
 
-        
+
+        if(this.movingRight){
+            x += 5;
+        }
+        if(this.movingLeft){
+            x -= 5;
+        }
     }
+
 
     public void collisionWithGroundAndWalls(){
 
@@ -87,7 +111,5 @@ public class Player implements KeyListener{
         g.setColor(Color.BLACK);
         g.fillRect(this.x, this.y, this.width, this.height);
     }
-
-
 
 }
