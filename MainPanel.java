@@ -71,6 +71,10 @@ public class MainPanel extends JPanel implements KeyListener {
         g2.fillRect(0, 0, 20, 1000);
         g2.fillRect(960, 0, 100, 1000);
         g2.fillRect(0, 0, 1000, 20);
+
+        //writes legend text to screen
+        g2.setColor(Color.BLACK);
+        g2.drawString("USE W A S D TO MOVE", 300, 650);
     }
 
     
