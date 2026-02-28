@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class MainPanel extends JPanel implements KeyListener {
 
-    private Letter[] letters = new Letter[26];
+    private KeyChar[] characters = new KeyChar[42];
     public player p1;
     private final Timer timer;
 
@@ -15,7 +15,7 @@ public class MainPanel extends JPanel implements KeyListener {
         addKeyListener(this);
         setFocusable(true);
 
-        addLetters();
+        addChars();
 
         this.p1 = new player(100, 100, 10, 10);
         
@@ -27,28 +27,22 @@ public class MainPanel extends JPanel implements KeyListener {
         timer.start();
     }
 
-    public void addLetters() {
+    public void addChars() {
 
         char[] keyboardLetters = {
-        // Top Row (Numbers and Symbols)
         '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-        // Second Row (QWERTY...)
         'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
-        // Third Row (ASDF...)
-        'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';',
-        // Fourth Row (ZXCV...)
+        'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
         'z', 'x', 'c', 'v', 'b', 'n', 'm'};
 
-        char[] numComplements = {'!', '"', '£', '$', '^', '&', '*', '(', ')'}
-
-        KeyChar letter[] = new KeyChar[42]; 
+        char[] numComplements = {'!', '"', '£', '$', '%', '^', '&', '*', '(', ')'};
 
         for (int i=0; i<10; i++){
-            letters[i] = new Letter(keyboardLetters[i], (30*i)+20, 400);
+            characters[i] = new NumberChar(keyboardLetters[i], numComplements[i], (30*i)+20, 400);
         } 
 
-        for (int i=10; i<42; i++) {
-            letters[i] = new Letter(keyboardLetters[i], (30*i)+20, 400);
+        for (int i=10; i<36; i++) {
+            characters[i] = new Letter(keyboardLetters[i], (30*i)+20, 400);
         }
     }
 
@@ -59,8 +53,8 @@ public class MainPanel extends JPanel implements KeyListener {
 
         p1.drawPlayer(g2);
 
-        for (int i=0; i<42; i++) {
-           letters[i].drawLetter(g2);
+        for (int i=0; i<36; i++) {
+           characters[i].drawChar(g2);
         }
     }
 
