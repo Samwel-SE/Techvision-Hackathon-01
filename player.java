@@ -20,7 +20,6 @@ public class player implements KeyListener{
         
     }
 
-
     @Override
     public void keyReleased(KeyEvent e) {/* does nothing */ }
     @Override
@@ -48,6 +47,15 @@ public class player implements KeyListener{
                 break;
         }
     }
+
+
+    public void jump(){
+        
+
+
+
+    }
+
 
     public void drawPlayer(Graphics2D g){
         g.setColor(Color.BLACK);
