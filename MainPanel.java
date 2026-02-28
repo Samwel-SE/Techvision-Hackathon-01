@@ -70,29 +70,37 @@ public class MainPanel extends JPanel implements KeyListener {
     }
 
     public void addCharUsername(char c) {
-        String currString = username.getText();
-        String newString = currString + String.valueOf(c);
-        username.setText(newString);
+        if (!(c == '#')) {
+            String currString = username.getText();
+            String newString = currString + String.valueOf(c);
+            username.setText(newString);
+        }
     }
 
     public void removeCharUsername() {
         String currString = username.getText();
         int strLength = currString.length();
-        String newString = currString.substring(0, strLength-1);
-        username.setText(newString);
+        if (!(strLength == 0)) {
+           String newString = currString.substring(0, strLength-1);
+           username.setText(newString);
+        }
     }
 
     public void addCharPass(char c) {
-        String currString = password.getText();
-        String newString = currString + String.valueOf(c);
-        password.setText(newString);
+        if (!(c == '#')) {
+            String currString = password.getText();
+            String newString = currString + String.valueOf(c);
+            password.setText(newString);
+        }
     }
 
     public void removeCharPass() {
         String currString = password.getText();
         int strLength = currString.length();
-        String newString = currString.substring(0, strLength-1);
-        password.setText(newString);
+        if (!(strLength == 0)) {
+          String newString = currString.substring(0, strLength-1);
+          password.setText(newString);
+        }
     }
 
     @Override
