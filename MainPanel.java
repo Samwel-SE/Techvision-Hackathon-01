@@ -1,17 +1,16 @@
 
 import javax.swing.*;
 
-public class Main extends JFrame{
-
-
-
+public class MainPanel extends JPanel {
 
 
     public static void main(String[] args){
 
+        
 
 
     }
+
 
 
 }
