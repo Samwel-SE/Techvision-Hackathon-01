@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class MainPanel extends JPanel implements KeyListener {
 
-    private KeyChar[] characters = new KeyChar[42];
+    private KeyChar[] characters = new KeyChar[36];
     public player p1;
     private final Timer timer;
 
@@ -35,7 +35,7 @@ public class MainPanel extends JPanel implements KeyListener {
         'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
         'z', 'x', 'c', 'v', 'b', 'n', 'm'};
 
-        char[] numComplements = {'!', '"', '£', '$', '%', '^', '&', '*', '(', ')'};
+        char[] numComplements = {'!', '"', 'p', '$', '%', '^', '&', '*', '(', ')'};
 
         for (int i=0; i<10; i++){
             characters[i] = new NumberChar(keyboardLetters[i], numComplements[i], (30*i)+20, 400);

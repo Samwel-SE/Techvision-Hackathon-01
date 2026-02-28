@@ -17,7 +17,7 @@ public class Letter extends KeyChar {
     public void unShift() { this.character = Character.toLowerCase(this.character); }
 
     @Override
-    public void drawChar(Graphics2D g){
+    public void drawChar(Graphics2D g) {
         g.setColor(Color.BLACK);
         // JLabel lbl = new JLabel(char);
         g.drawRect(this.x, this.y, length, length);
