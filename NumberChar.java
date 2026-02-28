@@ -1,9 +1,13 @@
+
 import java.awt.*;
 
-public class Letter extends KeyChar {
+public class NumberChar extends KeyChar {
 
-    public Letter(char c, int x, int y) {
+    private final char complement;
+
+    public NumberChar(char c, char complement, int x, int y) {
         super(c, x, y);
+        this.complement = complement;
     }
 
     @Override
@@ -15,7 +19,7 @@ public class Letter extends KeyChar {
     public void shift() { this.character = Character.toUpperCase(this.character); }
     @Override
     public void unShift() { this.character = Character.toLowerCase(this.character); }
-
+    
     @Override
     public void drawChar(Graphics2D g){
         g.setColor(Color.BLACK);
