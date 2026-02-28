@@ -45,12 +45,24 @@ public class MainPanel extends JPanel implements KeyListener {
 
         char[] numComplements = {'!', '"', 'p', '$', '%', '^', '&', '*', '(', ')'};
 
+        //draws the numbers
         for (int i=0; i<10; i++){
-            characters[i] = new NumberChar(keyboardLetters[i], numComplements[i], (60*i)+50, 400);
+            characters[i] = new NumberChar(keyboardLetters[i], numComplements[i], (60*i)+130, 300);
         } 
 
-        for (int i=10; i<36; i++) {
-            characters[i] = new Letter(keyboardLetters[i], (60*i)+50, 450);
+        //draws the next 10 letters
+        for (int i=0; i<10; i++) {
+            characters[i+10] = new Letter(keyboardLetters[i+10], (60*i)+130, 375);
+        }
+
+        //draws the next 9 letters
+        for(int i=0; i<9; i++){
+            characters[i+20] = new Letter(keyboardLetters[i+20], (60*i)+150, 450);
+        }
+
+        //draws the last 7 letters
+        for(int i=0; i<7; i++){
+            characters[i+29] = new Letter(keyboardLetters[i+29], (60*i)+210, 525);
         }
     }
 
