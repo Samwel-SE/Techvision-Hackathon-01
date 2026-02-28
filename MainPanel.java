@@ -1,6 +1,7 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 import javax.swing.*;
 
 public class MainPanel extends JPanel implements KeyListener {
@@ -91,16 +92,16 @@ public class MainPanel extends JPanel implements KeyListener {
             String currString = password.getText();
             String newString = currString + String.valueOf(c);
             password.setText(newString);
-            p1.jumping = false;
         }
     }
 
     public void removeCharPass() {
-        String currString = password.getText();
-        int strLength = currString.length();
-        if (!(strLength == 0)) {
-          String newString = currString.substring(0, strLength-1);
-          password.setText(newString);
+        char[] currPassword = password.getPassword();
+        int passLength = currPassword.length;
+        if (!(passLength == 0)) {
+          char[] newPassword = Arrays.copyOf(currPassword, passLength- 1);
+          password.setText(new String(newPassword));
+          Arrays.fill(currPassword, '\0');
         }
     }
 
@@ -144,8 +145,10 @@ public class MainPanel extends JPanel implements KeyListener {
     }
 
 
-    public void update(){
+    public void update() {
         p1.movement();
         p1.collisionWithGroundAndWalls();
+
+        this.addCharUsername(keyboard.checkCollisions(p1.x, p1.y, p1.width, p1.height));
     }
 }
