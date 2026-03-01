@@ -41,6 +41,10 @@ public class MainPanel extends JPanel implements KeyListener {
         final Font txtFont = new Font("Trebuchet MS", Font.PLAIN, 20);
         Dimension dimension = new Dimension(300, 30);
 
+        JPanel txtPanel = new JPanel();
+        txtPanel.setLayout(new FlowLayout());
+        txtPanel.setBorder(BorderFactory.createEmptyBorder(40, 0, 0, 0));
+
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
         topPanel.setBorder(BorderFactory.createEmptyBorder(40, 0, 0, 0));
@@ -58,7 +62,6 @@ public class MainPanel extends JPanel implements KeyListener {
         usernameRow.add(lblUsername);
         usernameRow.add(username);
 
-
         // Password row
         JLabel lblPassword = new JLabel("Password: ");
         lblPassword.setFont(lblFont);
@@ -69,10 +72,26 @@ public class MainPanel extends JPanel implements KeyListener {
         passwordRow.add(lblPassword);
         passwordRow.add(password);
 
-        submit.setEnabled(false);
 
-        topPanel.add(usernameRow);
-        topPanel.add(passwordRow);
+        txtPanel.add(usernameRow);
+        txtPanel.add(passwordRow);
+        txtPanel.setOpaque(false);
+
+        //submit.setEnabled(false);
+        submit.setFocusable(false); 
+        submit.setRequestFocusEnabled(false); 
+        submit.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        submit.addMouseListener(new MouseAdapter() {
+          @Override
+             public void mousePressed(MouseEvent e) { // ignore all mouse presses
+           }
+           @Override
+             public void mouseReleased(MouseEvent e) { // ignore all mouse releases
+            }
+         });
+
+        topPanel.add(txtPanel);
         topPanel.add(submit);
         topPanel.setOpaque(false);
 
@@ -128,7 +147,8 @@ public class MainPanel extends JPanel implements KeyListener {
         Graphics2D g2 = (Graphics2D) g;
         p1.drawPlayer(g2);
         keyboard.draw(g2);
-    
+
+
         //draws the ground and walls
         g2.setColor(Color.DARK_GRAY);
         g2.fillRect(0, 610, 1500, 100);
