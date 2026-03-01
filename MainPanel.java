@@ -10,6 +10,7 @@ public class MainPanel extends JPanel implements KeyListener {
     private Keyboard keyboard = new Keyboard();
     private JTextField username = new JTextField();
     private JPasswordField password = new JPasswordField();
+    private JButton submit = new JButton("Submit");
 
     private final Timer timer;
 
@@ -41,7 +42,7 @@ public class MainPanel extends JPanel implements KeyListener {
         Dimension dimension = new Dimension(300, 30);
 
         JPanel topPanel = new JPanel();
-        topPanel.setLayout(new FlowLayout());
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
         topPanel.setBorder(BorderFactory.createEmptyBorder(40, 0, 0, 0));
 
         JPanel usernameRow = new JPanel();
@@ -68,8 +69,11 @@ public class MainPanel extends JPanel implements KeyListener {
         passwordRow.add(lblPassword);
         passwordRow.add(password);
 
+        submit.setEnabled(false);
+
         topPanel.add(usernameRow);
         topPanel.add(passwordRow);
+        topPanel.add(submit);
         topPanel.setOpaque(false);
 
         add(topPanel);
@@ -116,6 +120,7 @@ public class MainPanel extends JPanel implements KeyListener {
           Arrays.fill(currPassword, '\0');
         }
     }
+
 
     @Override
     protected void paintComponent(Graphics g) {
