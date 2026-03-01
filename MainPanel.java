@@ -31,8 +31,7 @@ public class MainPanel extends JPanel implements KeyListener {
         addTextBoxes();
 
         if (submitted){
-            hideTextBoxes();
-            
+            hideTextBoxes();  
         }
 
         this.p1 = new Player(100, 550, 10, 10);
@@ -135,7 +134,7 @@ public class MainPanel extends JPanel implements KeyListener {
 
     public void submitMessage(Graphics g){
         String user = username.getText();
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLACK);
         g.setFont(new Font("Trebuchet MS", Font.PLAIN, 22));
         g.drawString("Welcome, " + user, 350, 100);
     }
@@ -191,7 +190,6 @@ public class MainPanel extends JPanel implements KeyListener {
         p1.drawPlayer(g2);
         keyboard.draw(g2);
 
-
         //draws the ground and walls
         g2.setColor(Color.DARK_GRAY);
         g2.fillRect(0, 610, 1500, 100); //ground floor
@@ -212,6 +210,10 @@ public class MainPanel extends JPanel implements KeyListener {
         g2.setColor(Color.WHITE);
         g.setFont(new Font("Trebuchet MS", Font.PLAIN, 22));
         g2.drawString("Use WASD to move", 400, 650);
+
+        if (submitted){
+            submitMessage(g);
+        }
     }
 
     
