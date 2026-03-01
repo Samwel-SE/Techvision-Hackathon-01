@@ -52,10 +52,34 @@ public class Keyboard {
         }
 
         for(Letter l : letters){
-            l.drawChar(g);
+            l.drawChar(g); }
+
+        //draws the letters
+        for(Letter l : letters) l.drawChar(g);
+
+        for(InteractionKeys i : InteractionButtons) i.draw(g);
+    }
+
+    public char checkCollisions(int pX, int pY, int pW, int pH){
+
+        //checks for number key collision
+        for(NumberChar num : numbers){ 
+            if(num.bottomCollision(pX, pY, pW, pH) && num.animationState == false) {
+                num.animationState = true;
+                return num.getCharacter();
+            }
+            
+        }   
+
+        //checks for letter key collision
+        for(Letter l : letters){
+            if(l.bottomCollision(pX, pY, pW, pH) && l.animationState == false) {
+                l.animationState = true;
+                return l.getCharacter();
+            }
+
         }
 
     }
-
 
 }
