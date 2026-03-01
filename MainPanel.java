@@ -8,8 +8,8 @@ public class MainPanel extends JPanel implements KeyListener {
 
     private Player p1;
     private Keyboard keyboard = new Keyboard();
-    private JTextField username = new JTextField(20);
-    private JPasswordField password = new JPasswordField(20);
+    private JTextField username = new JTextField();
+    private JPasswordField password = new JPasswordField();
 
     private final Timer timer;
 
@@ -36,11 +36,12 @@ public class MainPanel extends JPanel implements KeyListener {
     }
 
     public void addTextBoxes() {
-        final Font lblFont = new Font("Trebuchet MS", Font.BOLD, 32);
-        final Font txtFont = new Font("Trebuchet MS", Font.PLAIN, 32);
+        final Font lblFont = new Font("Trebuchet MS", Font.BOLD, 20);
+        final Font txtFont = new Font("Trebuchet MS", Font.PLAIN, 20);
+        Dimension dimension = new Dimension(300, 30);
 
         JPanel topPanel = new JPanel();
-        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
+        topPanel.setLayout(new FlowLayout());
         topPanel.setBorder(BorderFactory.createEmptyBorder(40, 0, 0, 0));
 
         JPanel usernameRow = new JPanel();
@@ -50,6 +51,7 @@ public class MainPanel extends JPanel implements KeyListener {
         JLabel lblUsername = new JLabel("Username: ");
         lblUsername.setFont(lblFont);
         username.setFont(txtFont);
+        username.setPreferredSize(dimension);
         username.setFocusable(false);
         usernameRow.setLayout(new FlowLayout());
         usernameRow.add(lblUsername);
@@ -60,6 +62,7 @@ public class MainPanel extends JPanel implements KeyListener {
         JLabel lblPassword = new JLabel("Password: ");
         lblPassword.setFont(lblFont);
         password.setFont(txtFont);
+        password.setPreferredSize(dimension);
         password.setFocusable(false);
         passwordRow.setLayout(new FlowLayout());
         passwordRow.add(lblPassword);
