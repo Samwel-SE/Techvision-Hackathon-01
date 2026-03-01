@@ -123,8 +123,7 @@ public class MainPanel extends JPanel implements KeyListener {
         Graphics2D g2 = (Graphics2D) g;
         p1.drawPlayer(g2);
         keyboard.draw(g2);
-
-
+    
         //draws the ground and walls
         g2.setColor(Color.DARK_GRAY);
         g2.fillRect(0, 610, 1500, 100);
