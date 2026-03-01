@@ -26,12 +26,14 @@ public abstract class KeyChar {
             this.Pressed(g);
         }
         else{
+            //shadow
             g.setColor(Color.LIGHT_GRAY);
             g.fillRect(this.x + 5, this.y + 5, length, length);
+            
+            
+            //key
             g.setColor(Color.DARK_GRAY);
             g.fillRect(this.x, this.y, length, length);
-            g.setColor(Color.BLACK);
-            g.drawRect(this.x, this.y, length, length);
 
             String text = String.valueOf(this.character);
 
@@ -52,17 +54,35 @@ public abstract class KeyChar {
 
     public void Pressed(Graphics2D g){
         
-        timer = new Timer(1000, e -> {
-            g.setColor(Color.DARK_GRAY);
-            g.fillRoundRect(this.x + 5, this.y + 5, length, length, 20, 20);
-            
+        //new shadow
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(this.x + 5, this.y, length, length + 6);
+        
+        //key
+        g.setColor(Color.DARK_GRAY);
+        g.fillRect(this.x, this.y - 6, length, length);
+
+        //charecter text
+        String text = String.valueOf(this.character);
+
+        final int OFFSET = 4;
+
+        int textX = (this.x + (length / 2)) - OFFSET;
+        int textY = (this.y + ((length - 6) / 2)) + OFFSET;
+
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Impact", Font.PLAIN, 12));
+        g.drawString(text, textX, textY);
+        
+        
+        timer = new Timer(500, e -> {
+            this.animationState = false;
         });
 
         timer.setRepeats(false);
-        g.fillRoundRect(this.x, this.y, length, length, 20, 20);
-        g.setColor(Color.LIGHT_GRAY);
-        g.fillRoundRect(this.x + 5, this.y + 5, length, length, 20, 20);
-        this.animationState = false;
+        
+        timer.start();
+
     }
 
 }
