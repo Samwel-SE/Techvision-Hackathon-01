@@ -5,7 +5,6 @@ import java.awt.Graphics2D;
 
 public class Keyboard {
 
-
     //adds the numbers to the keyboard
     private final NumberChar[] numbers = new NumberChar[10];
     
@@ -82,11 +81,21 @@ public class Keyboard {
                 l.animationState = true;
                 return l.getCharacter();
             }
-
-        
         }
 
         //hashtag symbol reprents nothing being pressed down
         return '#';
     }
+
+    public InteractionKeys.Function interactableKeysCollide(int pX, int pY, int pW, int pH){
+
+        for(InteractionKeys k : InteractionButtons){
+            if(k.checkCollision(pX, pY, pW, pH) && k.animationState == false){
+                return k.func;
+            }
+        }
+
+        return InteractionKeys.Function.NONE;
+    }
+
 }

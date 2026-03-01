@@ -8,7 +8,8 @@ public class InteractionKeys {
     
     enum Function {
         BACKSPACE,
-        CAPS_LOCK
+        CAPS_LOCK,
+        NONE
     }
 
     public int x;
@@ -18,22 +19,25 @@ public class InteractionKeys {
 
     public Function func;
 
+    public boolean animationState;
+
     public InteractionKeys(int x, int y, int width, int height, Function func){
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.func = func;
+        this.animationState = false;
     }
 
     //checks for collision with other objects
     public boolean checkCollision(
         int ObjectX, int ObjectY, int ObjectWidth, int ObjectHeight){
         
-        return (this.x >= ObjectX &&
-                this.x +this.width <= ObjectX + ObjectWidth) &&
-               (this.y >= ObjectY && 
-                this.y +this.height <= ObjectY + ObjectHeight);
+        return this.x < ObjectX + ObjectWidth &&
+               this.x +this.width > ObjectX &&
+               this.y < ObjectY + ObjectHeight &&
+               this.y + this.height > ObjectY;
                      
     }
 

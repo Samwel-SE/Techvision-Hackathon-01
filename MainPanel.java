@@ -16,6 +16,10 @@ public class MainPanel extends JPanel implements KeyListener {
 
     private boolean keyPressed = false;
 
+    public boolean inUsername = true;
+    public boolean inPassword = false;
+
+
     public MainPanel() {
 
         addKeyListener(this);
@@ -164,6 +168,10 @@ public class MainPanel extends JPanel implements KeyListener {
         g2.fillRect(55, 440, 800, 5); //middle platform
 
         g2.fillRect(55, 360, 800, 5); // 2nd middle platform
+        
+        g2.fillRect(55, 280, 800, 5); //platform above keyboard
+
+        g2.fillRect(300, 220, 415, 5); //platform for submit button 
 
         //writes legend text to screen
         g2.setColor(Color.WHITE);
@@ -193,6 +201,21 @@ public class MainPanel extends JPanel implements KeyListener {
     public void update() {
         p1.movement();
         p1.collisionWithGroundAndWalls();
+
+        if(keyboard.interactableKeysCollide(p1.x, p1.y, p1.width, p1.height) == InteractionKeys.Function.BACKSPACE){
+            
+            if(inUsername){
+                removeCharUsername();
+            }
+            if(inPassword){
+                removeCharPass();
+            }
+        }
+
+        if(keyboard.interactableKeysCollide(p1.x, p1.y, p1.width, p1.height) == InteractionKeys.Function.CAPS_LOCK){
+            
+        }
+
 
         this.addCharUsername(keyboard.checkCollisions(p1.x, p1.y, p1.width, p1.height));
     }

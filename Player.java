@@ -109,6 +109,12 @@ public class Player implements KeyListener{
 
         //number platform
         if(this.checkCollision(55, 360, 800, 5)) this.endJump(350);
+
+        //buttons platform
+        if(this.checkCollision(55, 280, 800, 5)) this.endJump(270);
+
+        if(this.checkCollision(300, 220, 415, 5)) this.endJump(210);
+
     }
 
     public void endJump(int barrierY){
