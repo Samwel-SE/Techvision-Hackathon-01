@@ -35,6 +35,7 @@ public abstract class KeyChar {
             g.setColor(Color.DARK_GRAY);
             g.fillRect(this.x, this.y, length, length);
 
+            //text
             String text = String.valueOf(this.character);
 
             final int OFFSET = 4;
@@ -43,7 +44,7 @@ public abstract class KeyChar {
             int textY = (this.y + (length / 2)) + OFFSET;
 
             g.setColor(Color.WHITE);
-            g.setFont(new Font("Impact", Font.PLAIN, 12));
+            g.setFont(new Font("Trebuchet MS", Font.BOLD, 12));
             g.drawString(text, textX, textY);
         }
     }
@@ -68,10 +69,10 @@ public abstract class KeyChar {
         final int OFFSET = 4;
 
         int textX = (this.x + (length / 2)) - OFFSET;
-        int textY = (this.y + ((length - 6) / 2)) + OFFSET;
+        int textY = (this.y + ((length / 2) - 6)) + OFFSET;
 
         g.setColor(Color.WHITE);
-        g.setFont(new Font("Impact", Font.PLAIN, 12));
+        g.setFont(new Font("Trebuchet MS", Font.BOLD, 12));
         g.drawString(text, textX, textY);
         
         

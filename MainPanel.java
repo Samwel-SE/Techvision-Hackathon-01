@@ -36,8 +36,8 @@ public class MainPanel extends JPanel implements KeyListener {
     }
 
     public void addTextBoxes() {
-        final Font lblFont = new Font("Papyrus", Font.BOLD, 32);
-        final Font txtFont = new Font("Papyrus", Font.PLAIN, 32);
+        final Font lblFont = new Font("Trebuchet MS", Font.BOLD, 32);
+        final Font txtFont = new Font("Trebuchet MS", Font.PLAIN, 32);
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
@@ -131,7 +131,7 @@ public class MainPanel extends JPanel implements KeyListener {
 
         //writes legend text to screen
         g2.setColor(Color.WHITE);
-        g.setFont(new Font("Times New Roman", Font.PLAIN, 22));
+        g.setFont(new Font("Trebuchet MS", Font.PLAIN, 22));
         g2.drawString("Use WASD to move", 400, 650);
     }
 
