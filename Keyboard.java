@@ -84,9 +84,9 @@ public class Keyboard {
             }
 
         
-    }
+        }
 
-    //hashtag symbol reprents nothing being pressed down
-    return '#';
+        //hashtag symbol reprents nothing being pressed down
+        return '#';
     }
 }

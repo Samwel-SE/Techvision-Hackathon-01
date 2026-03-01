@@ -1,5 +1,9 @@
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 
 
@@ -20,6 +24,8 @@ public class Player implements KeyListener{
 
     final int JUMP_VEL = 13;
 
+    private BufferedImage cursorImage;
+
     public Player(int x, int y, int width, int height){
         this.x = x;
         this.y = y;
@@ -31,6 +37,14 @@ public class Player implements KeyListener{
         this.movingLeft = false;
 
         this.jumpVel = JUMP_VEL;  
+
+        try {
+            // This looks for 'cursor.png' in your project resources folder
+            cursorImage = ImageIO.read(getClass().getResourceAsStream("/cursor.png"));
+        } catch (IOException | NullPointerException e) {
+            System.out.println("Error: Could not find cursor.png. Check your file path!");
+            e.printStackTrace();
+        }
     }
 
     
@@ -116,9 +130,15 @@ public class Player implements KeyListener{
                      
     }
 
-    public void drawPlayer(Graphics2D g){
-        g.setColor(Color.BLACK);
-        g.fillRect(this.x, this.y, this.width, this.height);
+  public void drawPlayer(Graphics2D g) {
+        if (cursorImage != null) {
+            // Draw the image scaled to your width and height
+            g.drawImage(cursorImage, this.x, this.y, this.width, this.height, null);
+        } else {
+            // FALLBACK: If image fails to load, draw the black rectangle so the player isn't invisible
+            g.setColor(Color.BLACK);
+            g.fillRect(this.x, this.y, this.width, this.height);
+        }
     }
 
 }
