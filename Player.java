@@ -104,11 +104,13 @@ public class Player implements KeyListener{
         //bottom platform
         if(this.checkCollision(55, 530, 800, 5)) this.endJump(520);
 
+        //upper letter platform
         if(this.checkCollision(55, 440, 800, 5)) this.endJump(430);
 
+        //number platform
         if(this.checkCollision(55, 360, 800, 5)) this.endJump(350);
 
-        //1st middle platform
+        
         
 
     }
