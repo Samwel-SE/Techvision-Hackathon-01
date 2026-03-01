@@ -25,7 +25,7 @@ public class MainPanel extends JPanel implements KeyListener {
         keyboard.addInteractionKeys();
         addTextBoxes();
 
-        this.p1 = new Player(100, 100, 10, 10);
+        this.p1 = new Player(100, 550, 10, 10);
         
         // setup timer
         timer = new Timer(15, e -> {
@@ -151,10 +151,19 @@ public class MainPanel extends JPanel implements KeyListener {
 
         //draws the ground and walls
         g2.setColor(Color.DARK_GRAY);
-        g2.fillRect(0, 610, 1500, 100);
-        g2.fillRect(0, 0, 20, 1000);
-        g2.fillRect(960, 0, 100, 1000);
-        g2.fillRect(0, 0, 1000, 20);
+        g2.fillRect(0, 610, 1500, 100); //ground floor
+        g2.fillRect(0, 0, 20, 1000); //left wall
+        g2.fillRect(960, 0, 100, 1000); //right wall
+        g2.fillRect(0, 0, 1000, 20); //ceiling
+
+        //draws the platforms around the keyboard
+        g2.setColor(Color.BLACK);
+
+        g2.fillRect(55, 530, 800, 5); //bottom platform
+        
+        g2.fillRect(55, 440, 800, 5); //middle platform
+
+        g2.fillRect(55, 360, 800, 5); // 2nd middle platform
 
         //writes legend text to screen
         g2.setColor(Color.WHITE);

@@ -42,7 +42,7 @@ public class Keyboard {
 
         //draws the last 7 letters
         for (int i=0; i<7; i++) {
-            letters[i+19] = new Letter(keyboardLetters[i+29], (60*i)+210, 525);
+            letters[i+19] = new Letter(keyboardLetters[i+29], (60*i)+210, 540);
         }
     }
 
