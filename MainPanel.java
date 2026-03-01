@@ -244,12 +244,21 @@ public class MainPanel extends JPanel implements KeyListener {
 
         if (p1.checkCollision(usernameGlblBounds.x, usernameGlblBounds.y, usernameGlblBounds.width, usernameGlblBounds.height)) {
             currTxt = enumCurrTxt.valueOf("USERNAME");
-        } else {
+        } 
+        else {
             Rectangle passwordLclBounds = password.getBounds();
             Rectangle passwordGlblBounds = SwingUtilities.convertRectangle(password.getParent(), passwordLclBounds, this);
 
             if (p1.checkCollision(passwordGlblBounds.x, passwordGlblBounds.y, passwordGlblBounds.width, passwordGlblBounds.height)) {
                 currTxt = enumCurrTxt.valueOf("PASSWORD");
+            }
+            else {
+                Rectangle submitLclBounds = submit.getBounds();
+                Rectangle submitGlblBounds = SwingUtilities.convertRectangle(submit.getParent(), submitLclBounds, this);
+
+                if (p1.checkCollision(submitGlblBounds.x, submitGlblBounds.y, submitGlblBounds.width, submitGlblBounds.height)) {
+                    submitted = true;
+                }
             }
         }
 
