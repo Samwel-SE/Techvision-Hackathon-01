@@ -69,7 +69,7 @@ public class Keyboard {
 
         //checks for number key collision
         for(NumberChar num : numbers){ 
-            if(num.bottomCollision(pX, pY, pW, pH)) {
+            if(num.bottomCollision(pX, pY, pW, pH) && num.animationState == false) {
                 num.animationState = true;
                 return num.getCharacter();
             }
@@ -78,7 +78,7 @@ public class Keyboard {
 
         //checks for letter key collision
         for(Letter l : letters){
-            if(l.bottomCollision(pX, pY, pW, pH)) {
+            if(l.bottomCollision(pX, pY, pW, pH) && l.animationState == false) {
                 l.animationState = true;
                 return l.getCharacter();
             }

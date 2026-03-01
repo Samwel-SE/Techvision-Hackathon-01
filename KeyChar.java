@@ -10,7 +10,6 @@ public abstract class KeyChar {
     private Timer timer;
     public boolean animationState = false;
 
-
     public KeyChar(char c, int x, int y) {
         this.character = c;
         this.x = x;
@@ -54,11 +53,10 @@ public abstract class KeyChar {
     }
 
     public void Pressed(Graphics2D g){
-        
         //new shadow
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(this.x + 5, this.y, length, length + 6);
-        
+            
         //key
         g.setColor(Color.DARK_GRAY);
         g.fillRect(this.x, this.y - 6, length, length);
@@ -74,16 +72,15 @@ public abstract class KeyChar {
         g.setColor(Color.WHITE);
         g.setFont(new Font("Trebuchet MS", Font.BOLD, 12));
         g.drawString(text, textX, textY);
-        
-        
+
+
         timer = new Timer(500, e -> {
             this.animationState = false;
         });
 
         timer.setRepeats(false);
-        
+            
         timer.start();
-
     }
 
 }
