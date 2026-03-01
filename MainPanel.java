@@ -16,6 +16,8 @@ public class MainPanel extends JPanel implements KeyListener {
 
     private boolean keyPressed = false;
 
+    private boolean submitted = false;
+
     public MainPanel() {
 
         addKeyListener(this);
@@ -24,6 +26,11 @@ public class MainPanel extends JPanel implements KeyListener {
         keyboard.addChars();
         keyboard.addInteractionKeys();
         addTextBoxes();
+
+        if (submitted){
+            hideTextBoxes();
+            
+        }
 
         this.p1 = new Player(100, 550, 10, 10);
         
@@ -98,6 +105,36 @@ public class MainPanel extends JPanel implements KeyListener {
         add(topPanel);
     }
 
+ public void hideTextBoxes() {
+    if (submitted) {
+        username.setVisible(false);
+        password.setVisible(false);
+        submit.setVisible(false);
+
+        if (username.getParent() != null) {
+            username.getParent().setVisible(false);
+        }
+        if (password.getParent() != null) {
+            password.getParent().setVisible(false);
+        }
+        
+        Container parent = submit.getParent();
+        if (parent instanceof JPanel) {
+            parent.setVisible(false);
+        }
+
+        revalidate();
+        repaint();
+    }
+}
+
+    public void submitMessage(Graphics g){
+        String user = username.getText();
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Trebuchet MS", Font.PLAIN, 22));
+        g.drawString("Welcome, " + user, 350, 100);
+    }
+
     public void addCharUsername(char c) {
         if (!(c == '#')) {
             keyPressed = true;
@@ -143,6 +180,7 @@ public class MainPanel extends JPanel implements KeyListener {
 
     @Override
     protected void paintComponent(Graphics g) {
+
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         p1.drawPlayer(g2);
