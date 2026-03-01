@@ -21,6 +21,7 @@ public class MainPanel extends JPanel implements KeyListener {
         setFocusable(true);
 
         keyboard.addChars();
+        keyboard.addInteractionKeys();
         addTextBoxes();
 
         this.p1 = new Player(100, 100, 10, 10);
