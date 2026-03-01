@@ -6,6 +6,9 @@ import javax.swing.*;
 
 public class MainPanel extends JPanel implements KeyListener {
 
+    enum enumCurrTxt { USERNAME, PASSWORD };
+
+    private enumCurrTxt currTxt;
     private Player p1;
     private Keyboard keyboard = new Keyboard();
     private JTextField username = new JTextField();
@@ -34,6 +37,8 @@ public class MainPanel extends JPanel implements KeyListener {
         });
 
         timer.start();
+
+        currTxt = enumCurrTxt.valueOf("USERNAME");
     }
 
     public void addTextBoxes() {
@@ -193,6 +198,20 @@ public class MainPanel extends JPanel implements KeyListener {
     public void update() {
         p1.movement();
         p1.collisionWithGroundAndWalls();
+        
+        Rectangle usernameLclBounds = username.getBounds();
+        Rectangle usernameGlblBounds = SwingUtilities.convertRectangle(username.getParent(), usernameLclBounds, this);
+
+        if (p1.checkCollision(usernameGlblBounds.x, usernameGlblBounds.y, usernameGlblBounds.width, usernameGlblBounds.height)) {
+            currTxt = enumCurrTxt.valueOf("USERNAME");
+        } else {
+            Rectangle passwordLclBounds = password.getBounds();
+            Rectangle passwordGlblBounds = SwingUtilities.convertRectangle(password.getParent(), passwordLclBounds, this);
+
+            if (p1.checkCollision(passwordGlblBounds.x, passwordGlblBounds.y, passwordGlblBounds.width, passwordGlblBounds.height)) {
+                currTxt = enumCurrTxt.valueOf("PASSWORD");
+            }
+        }
 
         this.addCharUsername(keyboard.checkCollisions(p1.x, p1.y, p1.width, p1.height));
     }
