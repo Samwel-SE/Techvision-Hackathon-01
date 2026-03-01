@@ -13,7 +13,7 @@ public class Keyboard {
 
     //adds some InteractionKeys 
     public InteractionKeys[] InteractionButtons = new InteractionKeys[2];
-    
+
 
     public void addChars() {
 
@@ -54,7 +54,7 @@ public class Keyboard {
 
     //draws keyboard and the boxes around stuff
     public void draw(Graphics2D g){
-        
+
         //draws the numbers
         for(NumberChar num : numbers) num.drawChar(g);
 
