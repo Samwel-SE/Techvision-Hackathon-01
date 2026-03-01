@@ -19,6 +19,13 @@ public class MainPanel extends JPanel implements KeyListener {
 
     private boolean keyPressed = false;
 
+    public boolean inUsername = true;
+    public boolean inPassword = false;
+
+
+    private boolean submitted = false;
+
+
     public MainPanel() {
 
         addKeyListener(this);
@@ -28,9 +35,9 @@ public class MainPanel extends JPanel implements KeyListener {
         keyboard.addInteractionKeys();
         addTextBoxes();
 
-        if (submitted){
-            hideTextBoxes();  
-        }
+        // if (submitted){
+        //     hideTextBoxes();  
+        // }
 
         this.p1 = new Player(100, 550, 10, 10);
         
@@ -215,6 +222,7 @@ public class MainPanel extends JPanel implements KeyListener {
 
         if (submitted){
             submitMessage(g);
+            hideTextBoxes();
         }
     }
 
@@ -240,7 +248,53 @@ public class MainPanel extends JPanel implements KeyListener {
     public void update() {
         p1.movement();
         p1.collisionWithGroundAndWalls();
+        
+        Rectangle usernameLclBounds = username.getBounds();
+        Rectangle usernameGlblBounds = SwingUtilities.convertRectangle(username.getParent(), usernameLclBounds, this);
 
-        this.addCharUsername(keyboard.checkCollisions(p1.x, p1.y, p1.width, p1.height));
+        if (p1.checkCollision(usernameGlblBounds.x, usernameGlblBounds.y, usernameGlblBounds.width, usernameGlblBounds.height)) {
+            currTxt = enumCurrTxt.valueOf("USERNAME");
+            this.inUsername = true;
+            this.inPassword = false;
+        } 
+        else {
+            Rectangle passwordLclBounds = password.getBounds();
+            Rectangle passwordGlblBounds = SwingUtilities.convertRectangle(password.getParent(), passwordLclBounds, this);
+
+            if (p1.checkCollision(passwordGlblBounds.x, passwordGlblBounds.y, passwordGlblBounds.width, passwordGlblBounds.height)) {
+                currTxt = enumCurrTxt.valueOf("PASSWORD");
+                this.inPassword = true;
+                this.inUsername = false;
+            }
+            else {
+                Rectangle submitLclBounds = submit.getBounds();
+                Rectangle submitGlblBounds = SwingUtilities.convertRectangle(submit.getParent(), submitLclBounds, this);
+
+                if (p1.checkCollision(submitGlblBounds.x, submitGlblBounds.y, submitGlblBounds.width, submitGlblBounds.height)) {
+                    submitted = true;
+                }
+            }
+        }
+
+        if(keyboard.interactableKeysCollide(p1.x, p1.y, p1.width, p1.height) == InteractionKeys.Function.BACKSPACE){
+            
+            if(inUsername){
+                removeCharUsername();
+            }
+            if(inPassword){
+                removeCharPass();
+            }
+        }
+
+        if(keyboard.interactableKeysCollide(p1.x, p1.y, p1.width, p1.height) == InteractionKeys.Function.CAPS_LOCK){
+            
+        }
+
+        if(currTxt == enumCurrTxt.USERNAME){
+            this.addCharUsername(keyboard.checkCollisions(p1.x, p1.y, p1.width, p1.height));
+        }
+        if(currTxt == enumCurrTxt.PASSWORD){
+            this.addCharPass(keyboard.checkCollisions(p1.x, p1.y, p1.width, p1.height));
+        }
     }
 }
